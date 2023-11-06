@@ -1,0 +1,23 @@
+.heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 40px;
+  border-bottom: 1px solid #edf2f7;
+}
+.heading p {
+  cursor: pointer;
+  color: red;
+}
+.heading p:hover {
+  color: green;
+}
+.container {
+    padding: 5px 40px;
+}
+.container p{
+    font-size: medium;
+}
+li{
+  padding-bottom: 10px;
+}
