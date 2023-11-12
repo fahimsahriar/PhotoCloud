@@ -2,6 +2,7 @@ import { getStorage, ref, deleteObject } from "firebase/storage";
 
 const DeleteImage = (deleteList, setImageList, setdeleteList) => {
   const storage = getStorage();
+  console.log(deleteList);
 
   // deleting from front end
   deleteList.forEach((element) =>{

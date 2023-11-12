@@ -9,14 +9,6 @@ import DeleteImage from "../delete/DeleteImage";
 import Help from "../help/Help";
 import SyncLoader from "react-spinners/SyncLoader";
 
-//for drag and drop
-import { DndContext, closestCenter } from "@dnd-kit/core";
-import {
-  arrayMove,
-  SortableContext,
-  rectSortingStrategy,
-} from "@dnd-kit/sortable";
-
 function Gallery() {
   const [imageList, setImageList] = useState([]);
   const [deleteList, setdeleteList] = useState([]);
@@ -48,6 +40,7 @@ function Gallery() {
 
   //upload form's function
   const handleChange = (data) => {
+    console.log(data);
     if (data.target.checked) {
       setdeleteList((prev) => [...prev, data.target.id]);
     } else {
@@ -64,18 +57,6 @@ function Gallery() {
     DeleteImage(deleteList, setImageList, setdeleteList);
   };
 
-  //starting here for drag and drop
-  function handleDragEnd(event) {
-    const { active, over } = event;
-
-    if (active.id !== over.id) {
-      setImageList((items) => {
-        const activeIndex = items.indexOf(active.id);
-        const overIndex = items.indexOf(over.id);
-        return arrayMove(items, activeIndex, overIndex);
-      });
-    }
-  }
   return (
     <>
       <div className={styles.heading}>
@@ -92,18 +73,9 @@ function Gallery() {
         </div>
       ) : (
         <div className={styles.container}>
-          <DndContext
-            collisionDetection={closestCenter}
-            onDragEnd={handleDragEnd}
-          >
-            <SortableContext items={imageList} strategy={rectSortingStrategy}>
-              {imageList.map((url) => {
-                return (
-                  <ImageBox key={url} url={url} handleChange={handleChange} />
-                );
-              })}
-            </SortableContext>
-          </DndContext>
+          {imageList.map((url) => {
+            return <ImageBox key={url} url={url} handleChange={handleChange} />;
+          })}
           <div className={styles.last}>
             <UploadForm setImageList={setImageList} />
           </div>
