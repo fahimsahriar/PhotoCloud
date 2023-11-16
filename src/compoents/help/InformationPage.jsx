@@ -23,9 +23,7 @@ function InformationPage() {
         <ul>
           <li>
             <strong>Firebase Integration:</strong> The application leverages
-            Firebase for image storage. Images are uploaded to Firebase Storage,
-            and their references or URLs are stored in Firebase Firestore for
-            efficient retrieval and management.
+            Firebase for image storage. Images are uploaded to Firebase Storage.
           </li>
 
           <li>
@@ -35,10 +33,7 @@ function InformationPage() {
           </li>
 
           <li>
-            <strong>Drag and Drop Functionality:</strong> The Image Gallery
-            employs React DnD Kit to enable users to rearrange image positions
-            within the gallery effortlessly. This intuitive drag-and-drop
-            functionality enhances user experience while organizing images.
+            <strong>Responsive Design:</strong> Image Gallery's UI design adapts to various devices, ensuring optimal user experience. It prioritizes flexibility, readability, and accessibility for seamless interaction.
           </li>
 
           <li>
